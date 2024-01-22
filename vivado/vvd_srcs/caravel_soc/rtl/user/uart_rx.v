@@ -93,13 +93,12 @@ module uart_receive (
           busy <= 1'b0;
         end
         WAIT_READ: begin
-          state <= WAIT; // modified for fifo
           irq <= 1'b0;
           busy <= 1'b0;
-          // if(rx_finish)
-          //   state <= WAIT;
-          // else
-          //   state <= WAIT_READ;
+          if(rx_finish)
+            state <= WAIT;
+          else
+            state <= WAIT_READ;
         end
         FRAME_ERR:begin
             state <= WAIT;

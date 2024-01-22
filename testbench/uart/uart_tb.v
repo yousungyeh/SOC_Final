@@ -161,7 +161,43 @@ module uart_tb;
 	initial begin
 		wait(checkbits == 16'hAB40);		
 		$display("LA Test uart started");
-		#1000000;
+		#100000;
+		send_data_1;
+		wait(tx_clear_req);
+		send_data_2;
+		wait(tx_clear_req);
+		send_data_3;
+		wait(tx_clear_req);
+		send_data_4;
+		wait(tx_clear_req);
+		
+		send_data_1;
+		wait(tx_clear_req);
+		send_data_2;
+		wait(tx_clear_req);
+		send_data_3;
+		wait(tx_clear_req);
+		send_data_4;
+		wait(tx_clear_req);
+		
+		send_data_1;
+		wait(tx_clear_req);
+		send_data_2;
+		wait(tx_clear_req);
+		send_data_3;
+		wait(tx_clear_req);
+		send_data_4;
+		wait(tx_clear_req);
+		
+		send_data_1;
+		wait(tx_clear_req);
+		send_data_2;
+		wait(tx_clear_req);
+		send_data_3;
+		wait(tx_clear_req);
+		send_data_4;
+		wait(tx_clear_req);
+		
 		send_data_1;
 		wait(tx_clear_req);
 		send_data_2;

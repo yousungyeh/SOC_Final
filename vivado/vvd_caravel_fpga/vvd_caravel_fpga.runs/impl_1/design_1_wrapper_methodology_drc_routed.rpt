@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
-| Date         : Tue Jan 16 13:01:06 2024
+| Date         : Mon Jan 22 06:20:07 2024
 | Host         : ubuntu2004 running 64-bit Ubuntu 20.04.4 LTS
 | Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
 | Design       : design_1_wrapper
@@ -23,15 +23,13 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 1069
-+-----------+------------------+--------------------------------+------------+
-| Rule      | Severity         | Description                    | Violations |
-+-----------+------------------+--------------------------------+------------+
-| TIMING-17 | Critical Warning | Non-clocked sequential cell    | 1000       |
-| LUTAR-1   | Warning          | LUT drives async reset alert   | 4          |
-| TIMING-20 | Warning          | Non-clocked latch              | 64         |
-| LATCH-1   | Advisory         | Existing latches in the design | 1          |
-+-----------+------------------+--------------------------------+------------+
+             Violations found: 1004
++-----------+------------------+------------------------------+------------+
+| Rule      | Severity         | Description                  | Violations |
++-----------+------------------+------------------------------+------------+
+| TIMING-17 | Critical Warning | Non-clocked sequential cell  | 1000       |
+| LUTAR-1   | Warning          | LUT drives async reset alert | 4          |
++-----------+------------------+------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
@@ -5096,347 +5094,22 @@ Related violations: <none>
 
 LUTAR-1#4 Warning
 LUT drives async reset alert  
-LUT cell design_1_i/caravel_0/inst/soc/int_rst_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) design_1_i/caravel_0/inst/mprj/uart/FSM_sequential_ctrl_irq_valid_reg[0]/CLR,
-design_1_i/caravel_0/inst/mprj/uart/FSM_sequential_ctrl_irq_valid_reg[1]/CLR,
-design_1_i/caravel_0/inst/mprj/uart/crtl_stat_p_reg[0]/PRE,
-design_1_i/caravel_0/inst/mprj/uart/crtl_stat_p_reg[1]/CLR,
-design_1_i/caravel_0/inst/mprj/uart/ctrl_irq_reg/CLR,
-design_1_i/caravel_0/inst/mprj/uart/tx_fifo/count_reg[0]/CLR,
-design_1_i/caravel_0/inst/mprj/uart/tx_fifo/count_reg[1]/CLR,
-design_1_i/caravel_0/inst/mprj/uart/tx_fifo/count_reg[2]/CLR,
-design_1_i/caravel_0/inst/mprj/uart/tx_fifo/read_ptr_reg[0]/CLR,
-design_1_i/caravel_0/inst/mprj/uart/tx_fifo/read_ptr_reg[1]/CLR,
-design_1_i/caravel_0/inst/mprj/uart/tx_fifo/write_ptr_reg[0]/CLR,
-design_1_i/caravel_0/inst/mprj/uart/tx_fifo/write_ptr_reg[1]/CLR,
-design_1_i/caravel_0/inst/mprj/uart/tx_fifo_start_lag_reg[0]/CLR,
-design_1_i/caravel_0/inst/mprj/uart/tx_fifo_start_lag_reg[1]/CLR,
-design_1_i/caravel_0/inst/mprj/uart/tx_start_reg/CLR
- (the first 15 of 182 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-TIMING-20#1 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][0] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][0]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#2 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][1] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][1]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#3 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][2] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][2]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#4 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][3] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][3]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#5 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][4] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][4]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#6 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][5] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][5]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#7 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][6] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][6]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#8 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][7] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[0][7]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#9 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][0] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][0]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#10 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][1] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][1]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#11 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][2] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][2]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#12 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][3] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][3]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#13 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][4] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][4]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#14 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][5] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][5]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#15 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][6] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][6]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#16 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][7] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[1][7]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#17 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][0] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][0]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#18 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][1] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][1]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#19 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][2] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][2]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#20 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][3] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][3]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#21 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][4] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][4]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#22 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][5] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][5]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#23 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][6] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][6]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#24 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][7] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[2][7]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#25 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][0] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][0]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#26 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][1] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][1]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#27 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][2] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][2]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#28 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][3] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][3]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#29 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][4] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][4]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#30 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][5] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][5]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#31 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][6] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][6]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#32 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][7] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/rx_fifo/memory_reg[3][7]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#33 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][0] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][0]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#34 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][1] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][1]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#35 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][2] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][2]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#36 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][3] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][3]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#37 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][4] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][4]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#38 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][5] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][5]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#39 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][6] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][6]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#40 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][7] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[0][7]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#41 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][0] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][0]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#42 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][1] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][1]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#43 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][2] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][2]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#44 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][3] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][3]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#45 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][4] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][4]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#46 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][5] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][5]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#47 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][6] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][6]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#48 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][7] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[1][7]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#49 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][0] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][0]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#50 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][1] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][1]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#51 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][2] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][2]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#52 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][3] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][3]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#53 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][4] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][4]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#54 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][5] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][5]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#55 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][6] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][6]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#56 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][7] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[2][7]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#57 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][0] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][0]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#58 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][1] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][1]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#59 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][2] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][2]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#60 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][3] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][3]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#61 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][4] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][4]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#62 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][5] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][5]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#63 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][6] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][6]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#64 Warning
-Non-clocked latch  
-The latch design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][7] cannot be properly analyzed as its control pin design_1_i/caravel_0/inst/mprj/uart/tx_fifo/memory_reg[3][7]/G is not reached by a timing clock
-Related violations: <none>
-
-LATCH-1#1 Advisory
-Existing latches in the design  
-There are 64 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
+LUT cell design_1_i/caravel_0/inst/soc/int_rst_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) design_1_i/caravel_0/inst/mprj/uart/transmission/clk_cnt_reg[30]/CLR,
+design_1_i/caravel_0/inst/mprj/uart/transmission/clk_cnt_reg[31]/CLR,
+design_1_i/caravel_0/inst/mprj/uart/transmission/clk_cnt_reg[3]/CLR,
+design_1_i/caravel_0/inst/mprj/uart/transmission/clk_cnt_reg[4]/CLR,
+design_1_i/caravel_0/inst/mprj/uart/transmission/clk_cnt_reg[5]/CLR,
+design_1_i/caravel_0/inst/mprj/uart/transmission/clk_cnt_reg[6]/CLR,
+design_1_i/caravel_0/inst/mprj/uart/transmission/clk_cnt_reg[7]/CLR,
+design_1_i/caravel_0/inst/mprj/uart/transmission/clk_cnt_reg[8]/CLR,
+design_1_i/caravel_0/inst/mprj/uart/transmission/clk_cnt_reg[9]/CLR,
+design_1_i/caravel_0/inst/mprj/uart/transmission/detect_posedge_start_reg[0]/CLR,
+design_1_i/caravel_0/inst/mprj/uart/transmission/detect_posedge_start_reg[1]/CLR,
+design_1_i/caravel_0/inst/mprj/uart/transmission/tx_index_reg[0]/CLR,
+design_1_i/caravel_0/inst/mprj/uart/transmission/tx_index_reg[1]/CLR,
+design_1_i/caravel_0/inst/mprj/uart/transmission/tx_index_reg[2]/CLR,
+design_1_i/caravel_0/inst/mprj/uart/transmission/tx_reg/PRE
+ (the first 15 of 197 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 

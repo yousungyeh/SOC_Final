@@ -1,57 +1,64 @@
 module fifo #(
-   parameter DATA_WIDTH = 8,               // Width of input and output data
-   parameter ADDR_EXP   = 2                // Width of our address, 
-   
+	parameter fifo_depth = 4,
+	parameter addr_size = 2, // this must follow fifo_depth
+	parameter data_size = 8
 )(
-   input clk,                           
-   input rst,
-   input [DATA_WIDTH - 1:0] i_data,    
-   input                    push,       // Rx -> FIFO
-   input                    pop,        // FIFO -> CTRL
-   output  [DATA_WIDTH - 1:0] o_data,  
-   output reg [ADDR_EXP:0]     count
-   );
-
-   localparam ADDR_DEPTH = 2 ** ADDR_EXP;    // FIFO depth is 2^^ADDR_EXP
-   wire empty,full;
-
-   reg   [DATA_WIDTH-1:0]     memory[ADDR_DEPTH-1:0];     // [7:0] [3:0]
-   reg   [ADDR_EXP-1:0] 	   write_ptr,read_ptr;         //  [1:0]
-   wire  [ADDR_EXP-1:0] 	   next_write_ptr;          // Next location to write to
-   wire  [ADDR_EXP-1:0] 	   next_read_ptr;           // Next location to read from
-   assign next_write_ptr = (write_ptr == ADDR_DEPTH-1) ? 0  :write_ptr + 1;
-   assign next_read_ptr  = (read_ptr  == ADDR_DEPTH-1) ? 0  :read_ptr  + 1;
-
-   wire 		     accept_write;                        // Asserted when we can accept this write (PUSH)
-   wire 		     accept_read;                         // Asserted when we can accept this read (POP)
-   assign accept_write = push && !full;
-   assign accept_read  = pop && !empty;
-
-   assign empty = (count == {ADDR_EXP{1'b0}} && read_ptr == write_ptr);
-   assign full  = (count == ADDR_DEPTH && read_ptr == write_ptr);
-   
-   assign o_data = memory[read_ptr];
-   always @(*)begin
-   	if(accept_write) memory[write_ptr] <= i_data;  
-   end	
-
-   // pointer logic
-   always @(posedge clk or negedge rst)begin
-      if(!rst)begin
-         write_ptr <= {ADDR_EXP{1'b0}};
-         read_ptr  <= {ADDR_EXP{1'b0}};
-         count     <= {ADDR_EXP{1'b0}};
-      end else begin
-         if (accept_write) begin
-            write_ptr <= next_write_ptr;         
-            count <= count + 1'b1;   
-         end 
-         
-         if(accept_read) begin
-            read_ptr <= next_read_ptr;   
-            count <= count - 1;
-         end
-      end
-   end
-   
+	input clk,
+	input rst_n,
+	input push, // only need 1 clk
+	input pop,  // only need 1 clk
+	input [data_size-1:0] i_data,
+	output wire [data_size-1:0] o_data,
+	output wire is_full,
+	output wire is_empty
+);
+	reg [data_size-1:0] fifo_register [fifo_depth-1:0];
+	reg [addr_size-1:0] push_ptr; // ptr that need to write data.(not last data position)
+	reg [addr_size-1:0] pop_ptr;  // point to the oldest (first out) data.
+	reg [addr_size-1:0] cnt; // count # of data in FIFO
+	integer i;
+	
+	assign is_full  = (push_ptr==pop_ptr && cnt!=0) ? 1 : 0;
+	assign is_empty = (push_ptr==pop_ptr && cnt==0) ? 1 : 0;
+	
+	always@(posedge clk or negedge rst_n)begin
+		if(!rst_n) begin
+			push_ptr <= 0;
+			pop_ptr  <= 0;
+			cnt      <= 0;
+		end
+		else begin
+			if (push && pop) begin 
+				push_ptr <= push_ptr + 1'b1;
+				pop_ptr  <= pop_ptr  + 1'b1;
+				cnt      <= cnt;
+			end
+			else if (push) begin 
+				push_ptr <= push_ptr + 1'b1;
+				pop_ptr  <= pop_ptr;
+				cnt      <= cnt + 1'b1;
+			end
+			else if (pop) begin 
+				push_ptr <= push_ptr;
+				pop_ptr  <= pop_ptr  + 1'b1;
+				cnt      <= cnt - 1'b1;
+			end
+			else begin 
+				push_ptr <= push_ptr;
+				pop_ptr  <= pop_ptr;
+				cnt      <= cnt;
+			end
+		end	
+	end
+	
+	always@(posedge clk or negedge rst_n)begin
+		if(!rst_n) for(i=0;i<fifo_depth;i=i+1) fifo_register[i] <= 32'b0;
+		else begin
+			if (push) fifo_register[push_ptr] <= i_data;
+			else fifo_register[push_ptr] <= fifo_register[push_ptr];
+		end
+	end 
+	
+	assign o_data = fifo_register[pop_ptr];	
+	
 endmodule 

@@ -41,9 +41,8 @@ module uart #(
   assign rx = io_in[5];	// Connect mprj_io_5 to rx
 
   // irq
-  wire irq, ctrl_irq;
-  //assign user_irq = {2'b00,irq};	// Use USER_IRQ_0
-  assign user_irq = {2'b00,ctrl_irq};	// Use USER_IRQ_0
+  wire irq;
+  assign user_irq = {2'b00, irq};	// Use USER_IRQ_0
 
   // CSR
   wire [7:0] rx_data; 
@@ -66,11 +65,12 @@ module uart #(
   // FIFO wire
   wire tx_push, tx_pop, tx_full, tx_empty;
   wire rx_push, rx_pop, rx_full, rx_empty;
-  wire [31:0] tx_fifo_i_data, tx_fifo_o_data;
-  wire [31:0] rx_fifo_i_data, rx_fifo_o_data;
+  wire [7:0] tx_fifo_i_data, tx_fifo_o_data;
+  wire [7:0] rx_fifo_i_data, rx_fifo_o_data;
   
   assign rx_fifo_i_data = rx_data;
-  assign tx_data = tx_fifo_o_data;
+  //assign tx_data = tx_fifo_o_data;
+  assign tx_data = tx_fifo_i_data; // turn-off tx_FIFO
 
   uart_receive receive(
     .rst_n      (~wb_rst_i  ),
@@ -128,14 +128,13 @@ module uart #(
 	.o_wb_ack	(wbs_ack_o),
 	.o_wb_dat	(wbs_dat_o),
 	
-	.i_rx		(rx_fifo_o_data), //
+	.i_rx		(rx_fifo_o_data),
   	.i_irq		(irq),
-  	.o_ctrl_irq	(ctrl_irq),
   	.i_frame_err	(frame_err),
   	.i_rx_busy	(rx_busy),
 	.o_rx_finish	(rx_finish),
 	
-	.o_tx		(tx_fifo_i_data), //
+	.o_tx		(tx_fifo_i_data),
 	.i_tx_start_clear(tx_start_clear), 
   	.i_tx_busy	(tx_busy),
 	.o_tx_start	(tx_start),

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
-| Date             : Tue Jan 16 13:01:07 2024
+| Date             : Mon Jan 22 06:20:09 2024
 | Host             : ubuntu2004 running 64-bit Ubuntu 20.04.4 LTS
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -53,16 +53,16 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.009 |        3 |       --- |             --- |
-| Slice Logic              |     0.006 |    13583 |       --- |             --- |
-|   LUT as Logic           |     0.005 |     5200 |     53200 |            9.77 |
-|   Register               |    <0.001 |     6258 |    106400 |            5.88 |
+| Slice Logic              |     0.006 |    13514 |       --- |             --- |
+|   LUT as Logic           |     0.005 |     5180 |     53200 |            9.74 |
+|   Register               |    <0.001 |     6209 |    106400 |            5.84 |
 |   CARRY4                 |    <0.001 |      236 |     13300 |            1.77 |
-|   F7/F8 Muxes            |    <0.001 |      219 |     53200 |            0.41 |
+|   F7/F8 Muxes            |    <0.001 |      217 |     53200 |            0.41 |
 |   LUT as Shift Register  |    <0.001 |      170 |     17400 |            0.98 |
 |   BUFG                   |    <0.001 |        4 |        32 |           12.50 |
 |   LUT as Distributed RAM |    <0.001 |       18 |     17400 |            0.10 |
-|   Others                 |     0.000 |      393 |       --- |             --- |
-| Signals                  |     0.007 |    10549 |       --- |             --- |
+|   Others                 |     0.000 |      387 |       --- |             --- |
+| Signals                  |     0.007 |    10501 |       --- |             --- |
 | Block RAM                |     0.008 |        8 |       140 |            5.71 |
 | PS7                      |     1.258 |        1 |       --- |             --- |
 | Static Power             |     0.136 |          |           |                 |
@@ -76,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.042 |       0.029 |      0.013 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.043 |       0.029 |      0.013 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.014 |       0.000 |      0.014 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
